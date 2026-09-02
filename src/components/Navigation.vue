@@ -1,7 +1,7 @@
 <template>
     <v-app-bar color="#4169e1">
         <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-        <v-toolbar-title>CPSC 4710/5710: Trustworthy Deep Learning — Fall 2026</v-toolbar-title>
+        <v-toolbar-title>CPSC 4710/5710: Trustworthy Deep Learning</v-toolbar-title>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer">
         <v-list density="default" nav>

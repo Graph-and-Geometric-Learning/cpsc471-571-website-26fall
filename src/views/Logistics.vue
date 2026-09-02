@@ -3,7 +3,7 @@
         <v-row>
             <v-col>
                 <v-sheet class="pa-8" elevation="6">
-                    <h1>Welcome to CPSC 4710/5710 — Fall 2026!</h1>
+                    <h1>Welcome to CPSC 4710/5710!</h1>
                     <ul>
                         <li>The class meets on Tuesday/Thursday 4PM-5:15PM ET, <a href="https://map.yale.edu/?id=1910#!m/591737?share" target="_blank">DAVIES AUD</a> - Davies Auditorium, Becton Ctr AUD.
                           <ul>
@@ -80,7 +80,7 @@
                     <h1>Communication</h1>
                     <h2>Ed Discussion</h2>
                     <ul>
-                        <li>The Fall 2026 Ed Discussion link will be posted before classes begin.</li>
+                        <li>The Ed Discussion link will be posted before classes begin.</li>
                         <li>Please participate and help each other, but
                             <ul>
                                 <li>Annotate your questions</li>

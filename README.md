@@ -1,4 +1,4 @@
-# CPSC 4710/5710: Trustworthy Deep Learning — Fall 2026
+# CPSC 4710/5710: Trustworthy Deep Learning
 
 ## Project setup
 
