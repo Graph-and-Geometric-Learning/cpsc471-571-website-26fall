@@ -84,15 +84,15 @@ export default defineComponent({
       },
       {
         name: "Mike Gee",
-        image_src: new URL("../assets/photos/no_avt.png", import.meta.url)
+        image_src: new URL("../assets/photos/mike_gee.jpg", import.meta.url)
           .href,
-        role: "Course Staff",
+        role: "Teaching Assistant",
       },
       {
         name: "Jennifer Zhang",
-        image_src: new URL("../assets/photos/no_avt.png", import.meta.url)
+        image_src: new URL("../assets/photos/jennifer_zhang.JPG", import.meta.url)
           .href,
-        role: "Course Staff",
+        role: "Teaching Assistant",
       },
     ],
   }),
