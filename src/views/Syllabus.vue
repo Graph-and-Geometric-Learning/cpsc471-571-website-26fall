@@ -9,6 +9,9 @@
                 <th>Week</th>
                 <th>Date</th>
                 <th>Lecture</th>
+                <th>Slides</th>
+                <th>Readings</th>
+                <th>Deadlines</th>
               </tr>
             </thead>
             <tbody>
@@ -18,6 +21,30 @@
                 <td :class="{ 'text-grey': item.noClass }">
                   {{ item.lecture }}
                 </td>
+                <td>
+                  <a
+                    v-if="item.slides"
+                    :href="materialUrl(item.slides)"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Slides
+                  </a>
+                </td>
+                <td>
+                  <div v-if="item.readings?.length" class="d-flex flex-column align-start ga-1">
+                    <a
+                      v-for="reading in item.readings"
+                      :key="reading.href"
+                      :href="materialUrl(reading.href)"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {{ reading.label }}
+                    </a>
+                  </div>
+                </td>
+                <td></td>
               </tr>
             </tbody>
           </v-table>
@@ -34,13 +61,31 @@ interface ScheduleItem {
   week: number;
   date: string;
   lecture: string;
+  slides?: string;
+  readings?: Reading[];
   noClass?: boolean;
 }
 
-const classMeeting = (week: number, date: string, lecture: string): ScheduleItem => ({
+interface Reading {
+  label: string;
+  href: string;
+}
+
+interface LectureMaterials {
+  slides?: string;
+  readings?: Reading[];
+}
+
+const classMeeting = (
+  week: number,
+  date: string,
+  lecture: string,
+  materials: LectureMaterials = {},
+): ScheduleItem => ({
   week,
   date,
   lecture,
+  ...materials,
 });
 
 const noClass = (week: number, date: string, lecture: string): ScheduleItem => ({
@@ -51,7 +96,20 @@ const noClass = (week: number, date: string, lecture: string): ScheduleItem => (
 });
 
 const items: ScheduleItem[] = [
-  classMeeting(1, "Thu, Sep 3", "Introduction to Trustworthy AI"),
+  classMeeting(
+    1,
+    "Thu, Sep 3",
+    "Introduction to Trustworthy AI",
+    {
+      slides: "lectures/2026-fall/01-introduction-to-trustworthy-ai.pdf",
+      readings: [
+        {
+          label: "AI Sustainability",
+          href: "https://arxiv.org/pdf/2205.03824",
+        },
+      ],
+    },
+  ),
   classMeeting(2, "Tue, Sep 8", "Deep Learning Basics, CNNs, and RNNs"),
   classMeeting(2, "Thu, Sep 10", "Transformers and Large Language Models (LLMs)"),
   classMeeting(3, "Tue, Sep 15", "Explainability of Neural Networks (XAI)"),
@@ -85,5 +143,14 @@ const items: ScheduleItem[] = [
 export default defineComponent({
   name: "Syllabus",
   data: () => ({ items }),
+  methods: {
+    materialUrl(href: string): string {
+      if (/^https?:\/\//i.test(href)) {
+        return href;
+      }
+
+      return `${import.meta.env.BASE_URL}${href.replace(/^\/+/, "")}`;
+    },
+  },
 });
 </script>
