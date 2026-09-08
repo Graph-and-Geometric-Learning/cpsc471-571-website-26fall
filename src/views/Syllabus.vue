@@ -11,6 +11,7 @@
                 <th>Lecture</th>
                 <th>Slides</th>
                 <th>Readings</th>
+                <th>Assignments</th>
                 <th>Deadlines</th>
               </tr>
             </thead>
@@ -44,6 +45,19 @@
                     </a>
                   </div>
                 </td>
+                <td>
+                  <div v-if="item.assignments?.length" class="d-flex flex-column align-start ga-1">
+                    <a
+                      v-for="assignment in item.assignments"
+                      :key="assignment.href"
+                      :href="materialUrl(assignment.href)"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {{ assignment.label }}
+                    </a>
+                  </div>
+                </td>
                 <td></td>
               </tr>
             </tbody>
@@ -62,18 +76,20 @@ interface ScheduleItem {
   date: string;
   lecture: string;
   slides?: string;
-  readings?: Reading[];
+  readings?: MaterialLink[];
+  assignments?: MaterialLink[];
   noClass?: boolean;
 }
 
-interface Reading {
+interface MaterialLink {
   label: string;
   href: string;
 }
 
 interface LectureMaterials {
   slides?: string;
-  readings?: Reading[];
+  readings?: MaterialLink[];
+  assignments?: MaterialLink[];
 }
 
 const classMeeting = (
@@ -110,7 +126,19 @@ const items: ScheduleItem[] = [
       ],
     },
   ),
-  classMeeting(2, "Tue, Sep 8", "Deep Learning Basics, CNNs, and RNNs"),
+  classMeeting(
+    2,
+    "Tue, Sep 8",
+    "Deep Learning Basics, CNNs, and RNNs",
+    {
+      assignments: [
+        {
+          label: "Written HW 1",
+          href: "homework/2026-fall/written-hw-1.pdf",
+        },
+      ],
+    },
+  ),
   classMeeting(2, "Thu, Sep 10", "Transformers and Large Language Models (LLMs)"),
   classMeeting(3, "Tue, Sep 15", "Explainability of Neural Networks (XAI)"),
   classMeeting(3, "Thu, Sep 17", "Local Explainability"),
@@ -131,7 +159,7 @@ const items: ScheduleItem[] = [
   classMeeting(11, "Tue, Nov 10", "LLM Privacy"),
   classMeeting(11, "Thu, Nov 12", "Algorithmic Fairness in ML"),
   classMeeting(12, "Tue, Nov 17", "Fairness in LLMs"),
-  classMeeting(12, "Thu, Nov 19", "Efficiency"),
+  classMeeting(12, "Thu, Nov 19", "Agent Safety/Alignment"),
   noClass(13, "Tue, Nov 24", "No class — November recess"),
   noClass(13, "Thu, Nov 26", "No class — Thanksgiving recess"),
   classMeeting(14, "Tue, Dec 1", "Guest Lecture by Prof. Arman Cohan on Security and Privacy of LLMs"),

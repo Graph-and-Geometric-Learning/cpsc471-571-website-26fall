@@ -87,16 +87,31 @@ function getRecurringEvents(day: number, name: string, loc: string, zoom_link: s
 }
 
 function getRexEvents() {
-    return getRecurringEvents(2, "Rex Ying", "17 Hillhouse, Room 332", "", 15, 16)
+    return getRecurringEvents(2, "Rex Ying", "17 Hillhouse, Office 332", "", 15, 16)
 }
 
 function getNgocEvents() {
-    return getRecurringEvents(5, "Ngoc Bui", "Dunham 432", "", 14.5, 15.5)
+    return getRecurringEvents(1, "Ngoc Bui", "Dunham Lab 403", "", 15, 16)
+}
+
+function getHarshitEvents() {
+    return getRecurringEvents(3, "Harshit Verma", "Dunham Lab 432", "", 11, 12)
+}
+
+function getMikeEvents() {
+    return getRecurringEvents(4, "Mike Gee", "Dunham Lab 401", "", 15, 16)
+}
+
+function getJenniferEvents() {
+    return getRecurringEvents(5, "Jennifer Zhang", "Dunham Lab 432", "", 15, 16)
 }
 
 function getEvents() {
     return getRexEvents()
         .concat(getNgocEvents())
+        .concat(getHarshitEvents())
+        .concat(getMikeEvents())
+        .concat(getJenniferEvents())
 }
 
 
