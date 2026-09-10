@@ -51,8 +51,9 @@
                       v-for="assignment in item.assignments"
                       :key="assignment.href"
                       :href="materialUrl(assignment.href)"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      :download="assignment.download"
+                      :target="assignment.download ? undefined : '_blank'"
+                      :rel="assignment.download ? undefined : 'noopener noreferrer'"
                     >
                       {{ assignment.label }}
                     </a>
@@ -84,6 +85,7 @@ interface ScheduleItem {
 interface MaterialLink {
   label: string;
   href: string;
+  download?: string;
 }
 
 interface LectureMaterials {
@@ -162,6 +164,7 @@ const items: ScheduleItem[] = [
         {
           label: "Coding Homework 1",
           href: "homework/2026-fall/CPSC4710_hw1_2026.ipynb",
+          download: "CPSC4710_hw1_2026.ipynb",
         },
       ],
     },
