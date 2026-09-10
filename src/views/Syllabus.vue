@@ -146,7 +146,26 @@ const items: ScheduleItem[] = [
       ],
     },
   ),
-  classMeeting(2, "Thu, Sep 10", "Transformers and Large Language Models (LLMs)"),
+  classMeeting(
+    2,
+    "Thu, Sep 10",
+    "Foundational Models",
+    {
+      slides: "lectures/2026-fall/03-transformers.pdf",
+      readings: [
+        {
+          label: "TrustLLMs",
+          href: "https://arxiv.org/abs/2401.05561",
+        },
+      ],
+      assignments: [
+        {
+          label: "Coding Homework 1",
+          href: "homework/2026-fall/CPSC4710_hw1_2026.ipynb",
+        },
+      ],
+    },
+  ),
   classMeeting(3, "Tue, Sep 15", "Explainability of Neural Networks (XAI)"),
   classMeeting(3, "Thu, Sep 17", "Local Explainability"),
   classMeeting(4, "Tue, Sep 22", "Explainability Evaluation"),
