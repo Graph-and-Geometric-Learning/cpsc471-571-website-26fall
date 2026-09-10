@@ -131,6 +131,13 @@ const items: ScheduleItem[] = [
     "Tue, Sep 8",
     "Deep Learning Basics, CNNs, and RNNs",
     {
+      slides: "lectures/2026-fall/02-basics.pdf",
+      readings: [
+        {
+          label: "Trust worthy machine learning Book chapter 1.1",
+          href: "http://www.trustworthymachinelearning.com",
+        },
+      ],
       assignments: [
         {
           label: "Written HW 1",
