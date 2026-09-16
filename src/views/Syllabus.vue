@@ -59,7 +59,13 @@
                     </a>
                   </div>
                 </td>
-                <td></td>
+                <td>
+                  <div v-if="item.deadlines?.length" class="d-flex flex-column align-start ga-1">
+                    <span v-for="deadline in item.deadlines" :key="deadline">
+                      {{ deadline }}
+                    </span>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </v-table>
@@ -79,6 +85,7 @@ interface ScheduleItem {
   slides?: string;
   readings?: MaterialLink[];
   assignments?: MaterialLink[];
+  deadlines?: string[];
   noClass?: boolean;
 }
 
@@ -92,6 +99,7 @@ interface LectureMaterials {
   slides?: string;
   readings?: MaterialLink[];
   assignments?: MaterialLink[];
+  deadlines?: string[];
 }
 
 const classMeeting = (
@@ -174,14 +182,38 @@ const items: ScheduleItem[] = [
       ],
     },
   ),
-  classMeeting(3, "Tue, Sep 15", "Explainability of Neural Networks (XAI)"),
+  classMeeting(3, "Tue, Sep 15", "Explainability of Neural Networks (XAI)",
+    {
+      slides: "lectures/2026-fall/04-explainability.pdf",
+      readings: [
+        {
+          label: "Integrated Gradients",
+          href: "https://arxiv.org/abs/1703.01365",
+        },
+      ],
+    }
+  ),
   classMeeting(3, "Thu, Sep 17", "Local Explainability"),
   classMeeting(4, "Tue, Sep 22", "Explainability Evaluation"),
   classMeeting(4, "Thu, Sep 24", "Global Explainability"),
   classMeeting(5, "Tue, Sep 29", "LLM Interpretability"),
-  classMeeting(5, "Thu, Oct 1", "Introduction to Adversarial Attacks"),
+  classMeeting(
+    5,
+    "Thu, Oct 1",
+    "Introduction to Adversarial Attacks",
+    {
+      deadlines: ["Written HW 1 due"],
+    },
+  ),
   classMeeting(6, "Tue, Oct 6", "Evasion Attacks and Defenses"),
-  classMeeting(6, "Thu, Oct 8", "In-class work session"),
+  classMeeting(
+    6,
+    "Thu, Oct 8",
+    "In-class work session",
+    {
+      deadlines: ["Coding Homework 1 due"],
+    },
+  ),
   classMeeting(7, "Tue, Oct 13", "Poisoning Attacks and Defenses"),
   classMeeting(7, "Thu, Oct 15", "Exploratory Attacks and Defenses"),
   classMeeting(8, "Tue, Oct 20", "Verification and Robust Reinforcement Learning"),
