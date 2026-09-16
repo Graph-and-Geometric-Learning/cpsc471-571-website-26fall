@@ -166,6 +166,11 @@ const items: ScheduleItem[] = [
           href: "homework/2026-fall/CPSC4710_hw1_2026.ipynb",
           download: "CPSC4710_hw1_2026.ipynb",
         },
+        {
+          label: "Image Files",
+          href: "homework/2026-fall/CPSC4710_hw1_2026_images.zip",
+          download: "CPSC4710_hw1_2026_images.zip",
+        },
       ],
     },
   ),
