@@ -193,8 +193,36 @@ const items: ScheduleItem[] = [
       ],
     }
   ),
-  classMeeting(3, "Thu, Sep 17", "Local Explainability"),
-  classMeeting(4, "Tue, Sep 22", "Explainability Evaluation"),
+  classMeeting(3, "Thu, Sep 17", "Local Explainability",
+    {
+      slides: "lectures/2026-fall/05-surrogates.pdf",
+      readings: [
+        {
+          label: "LIME",
+          href: "https://homes.cs.washington.edu/~marcotcr/blog/lime/",
+        },
+        {
+          label: "SHAP",
+          href: "https://arxiv.org/abs/1705.07874",
+        },
+      ],
+    }
+  ),
+  classMeeting(4, "Tue, Sep 22", "Explainability Evaluation",
+  {
+    slides: "lectures/2026-fall/06-explainability_eval.pdf",
+    readings: [
+      {
+        label: "Explanations can also be vulnerable to adversarial attacks",
+        href: "https://arxiv.org/pdf/1710.10547",
+      },
+      {
+        label: "Evaluating Explanations",
+        href: "https://arxiv.org/pdf/2005.00631",
+      }
+    ],
+  }
+  ),
   classMeeting(4, "Thu, Sep 24", "Global Explainability"),
   classMeeting(5, "Tue, Sep 29", "LLM Interpretability"),
   classMeeting(

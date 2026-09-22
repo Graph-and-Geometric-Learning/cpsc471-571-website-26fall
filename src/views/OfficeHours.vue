@@ -95,11 +95,11 @@ function getNgocEvents() {
 }
 
 function getHarshitEvents() {
-    return getRecurringEvents(3, "Harshit Verma", "Dunham Lab 432", "", 11, 12)
+    return getRecurringEvents(3, "Harshit Verma", "Dunham 403", "", 11, 12)
 }
 
 function getMikeEvents() {
-    return getRecurringEvents(4, "Mike Gee", "Dunham Lab 401", "", 15, 16)
+    return getRecurringEvents(4, "Mike Gee", "Dunham Room 432", "", 15, 16)
 }
 
 function getJenniferEvents() {
