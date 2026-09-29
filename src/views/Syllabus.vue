@@ -10,9 +10,9 @@
                 <th>Date</th>
                 <th>Lecture</th>
                 <th>Slides</th>
-                <th>Readings</th>
+                <th class="readings-column">Readings</th>
                 <th>Assignments</th>
-                <th>Deadlines</th>
+                <th class="deadlines-column">Deadlines</th>
               </tr>
             </thead>
             <tbody>
@@ -32,16 +32,17 @@
                     Slides
                   </a>
                 </td>
-                <td>
-                  <div v-if="item.readings?.length" class="d-flex flex-column align-start ga-1">
+                <td class="readings-column">
+                  <div v-if="item.readings?.length" class="reading-list">
                     <a
                       v-for="reading in item.readings"
                       :key="reading.href"
                       :href="materialUrl(reading.href)"
                       target="_blank"
                       rel="noopener noreferrer"
+                      class="reading-item"
                     >
-                      {{ reading.label }}
+                      <span>{{ reading.label }}</span>
                     </a>
                   </div>
                 </td>
@@ -59,11 +60,19 @@
                     </a>
                   </div>
                 </td>
-                <td>
-                  <div v-if="item.deadlines?.length" class="d-flex flex-column align-start ga-1">
-                    <span v-for="deadline in item.deadlines" :key="deadline">
-                      {{ deadline }}
-                    </span>
+                <td class="deadlines-column">
+                  <div v-if="item.deadlines?.length" class="deadline-list">
+                    <div
+                      v-for="deadline in item.deadlines"
+                      :key="deadline"
+                      class="deadline-item"
+                      :class="`deadline-item--${deadlineKind(deadline)}`"
+                    >
+                      <span class="deadline-status">
+                        {{ deadlineKind(deadline) }}
+                      </span>
+                      <span>{{ deadlineTitle(deadline) }}</span>
+                    </div>
                   </div>
                 </td>
               </tr>
@@ -114,11 +123,17 @@ const classMeeting = (
   ...materials,
 });
 
-const noClass = (week: number, date: string, lecture: string): ScheduleItem => ({
+const noClass = (
+  week: number,
+  date: string,
+  lecture: string,
+  materials: LectureMaterials = {},
+): ScheduleItem => ({
   week,
   date,
   lecture,
   noClass: true,
+  ...materials,
 });
 
 const items: ScheduleItem[] = [
@@ -223,14 +238,21 @@ const items: ScheduleItem[] = [
     ],
   }
   ),
-  classMeeting(4, "Thu, Sep 24", "Global Explainability"),
-  classMeeting(5, "Tue, Sep 29", "LLM Interpretability"),
+  classMeeting(4, "Thu, Sep 24", "Evaulating Explanations continued"),
+  classMeeting(5, "Tue, Sep 29", "LLM Interpretability",
+  {
+    slides: "lectures/2026-fall/07_mechanistic_Interpretability_for_LLMs.pdf",
+  }
+  ),
   classMeeting(
     5,
     "Thu, Oct 1",
     "Introduction to Adversarial Attacks",
     {
-      deadlines: ["Written HW 1 due"],
+      deadlines: [
+        "Written HW 1 due",
+        "Written HW 2 released (tentative)",
+      ],
     },
   ),
   classMeeting(6, "Tue, Oct 6", "Evasion Attacks and Defenses"),
@@ -239,33 +261,114 @@ const items: ScheduleItem[] = [
     "Thu, Oct 8",
     "In-class work session",
     {
-      deadlines: ["Coding Homework 1 due"],
+      deadlines: [
+        "Coding Homework 1 due",
+        "Coding Homework 2 released (tentative)",
+      ],
     },
   ),
   classMeeting(7, "Tue, Oct 13", "In class brainstorming session"),
-  classMeeting(7, "Thu, Oct 15", "Hands on coding session"),
+  classMeeting(
+    7,
+    "Thu, Oct 15",
+    "Hands on coding session",
+    {
+      deadlines: [
+        "Written HW 2 due (tentative)",
+        "Written HW 3 released (tentative)",
+      ],
+    },
+  ),
   classMeeting(8, "Tue, Oct 20", "Quiz"),
   noClass(8, "Thu, Oct 22", "No class — October recess"),
-  classMeeting(9, "Tue, Oct 27", "Guest Lecture"),
-  classMeeting(9, "Thu, Oct 29", "Differential Privacy"),
+  noClass(
+    8,
+    "Wed, Oct 21",
+    "No class",
+    {
+      deadlines: ["Project proposal due (tentative)"],
+    },
+  ),
+  classMeeting(
+    9,
+    "Tue, Oct 27",
+    "Guest Lecture",
+    {
+      deadlines: ["Coding Homework 2 due (tentative)"],
+    },
+  ),
+  classMeeting(
+    9,
+    "Thu, Oct 29",
+    "Differential Privacy",
+    {
+      deadlines: [
+        "Written HW 3 due (tentative)",
+        "Written HW 4 released (tentative)",
+      ],
+    },
+  ),
   classMeeting(10, "Tue, Nov 3", "Machine Unlearning"),
-  classMeeting(10, "Thu, Nov 5", "Federated Learning"),
+  classMeeting(
+    10,
+    "Thu, Nov 5",
+    "Federated Learning",
+    {
+      deadlines: ["Coding Homework 3 released (tentative)"],
+    },
+  ),
   classMeeting(11, "Tue, Nov 10", "LLM Privacy"),
   classMeeting(11, "Thu, Nov 12", "Algorithmic Fairness in ML"),
-  classMeeting(12, "Tue, Nov 17", "Fairness in LLMs"),
-  classMeeting(12, "Thu, Nov 19", "Agent Safety/Alignment"),
+  classMeeting(
+    12,
+    "Tue, Nov 17",
+    "Fairness in LLMs",
+    {
+      deadlines: ["Written HW 4 due (tentative)"],
+    },
+  ),
+  classMeeting(
+    12,
+    "Thu, Nov 19",
+    "Agent Safety/Alignment",
+    {
+      deadlines: ["Coding Homework 3 due (tentative)"],
+    },
+  ),
+  noClass(
+    12,
+    "Fri, Nov 20",
+    "No class",
+    {
+      deadlines: ["Project milestone due (tentative)"],
+    },
+  ),
   noClass(13, "Tue, Nov 24", "No class — November recess"),
   noClass(13, "Thu, Nov 26", "No class — Thanksgiving recess"),
   classMeeting(14, "Tue, Dec 1", "Guest Lecture"),
   classMeeting(14, "Thu, Dec 3", "Guest Lecture"),
   classMeeting(15, "Tue, Dec 8", "Revise and Prepare for Exam"),
   classMeeting(15, "Thu, Dec 10", "Exam"),
+  noClass(
+    16,
+    "Wed, Dec 16",
+    "No class",
+    {
+      deadlines: ["Final project report due (tentative; strict deadline)"],
+    },
+  ),
 ];
 
 export default defineComponent({
   name: "Syllabus",
   data: () => ({ items }),
   methods: {
+    deadlineKind(deadline: string): "due" | "released" {
+      return deadline.toLowerCase().includes("released") ? "released" : "due";
+    },
+    deadlineTitle(deadline: string): string {
+      return deadline.replace(/\s+(due|released)(?=\s|\()/i, "");
+    },
     materialUrl(href: string): string {
       if (/^https?:\/\//i.test(href)) {
         return href;
@@ -276,3 +379,77 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+.readings-column {
+  min-width: 260px;
+}
+
+.reading-list {
+  display: grid;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.reading-item {
+  display: block;
+  padding: 8px 10px;
+  border: 1px solid rgba(var(--v-theme-primary), 0.25);
+  border-radius: 6px;
+  background: rgba(var(--v-theme-primary), 0.06);
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.reading-item:hover {
+  border-color: rgb(var(--v-theme-primary));
+  background: rgba(var(--v-theme-primary), 0.1);
+}
+
+.deadlines-column {
+  min-width: 250px;
+}
+
+.deadline-list {
+  display: grid;
+  gap: 8px;
+  padding: 6px 0;
+}
+
+.deadline-item {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  gap: 8px;
+  align-items: start;
+  padding: 8px 10px;
+  border-left: 4px solid;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+
+.deadline-item--due {
+  border-color: rgb(var(--v-theme-error));
+  background: rgba(var(--v-theme-error), 0.1);
+}
+
+.deadline-item--released {
+  border-color: rgb(var(--v-theme-info));
+  background: rgba(var(--v-theme-info), 0.1);
+}
+
+.deadline-status {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.deadline-item--due .deadline-status {
+  color: rgb(var(--v-theme-error));
+}
+
+.deadline-item--released .deadline-status {
+  color: rgb(var(--v-theme-info));
+}
+</style>
