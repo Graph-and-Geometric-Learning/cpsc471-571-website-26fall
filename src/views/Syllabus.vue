@@ -249,18 +249,36 @@ const items: ScheduleItem[] = [
     "Thu, Oct 1",
     "Introduction to Adversarial Attacks",
     {
+      slides: "lectures/2026-fall/08_adversarial_evasion.pdf",
+      readings: [
+        {
+          label: "Adversarial Examples",
+          href: "https://arxiv.org/pdf/1712.07107",
+        },
+        {
+          label: "A Review of Adversarial Attack and Defense for Classification Methods",
+          href: "https://arxiv.org/pdf/2111.09961",
+        },
+      ],
       deadlines: [
         "Written HW 1 due",
         "Written HW 2 released (tentative)",
       ],
     },
   ),
-  classMeeting(6, "Tue, Oct 6", "Evasion Attacks and Defenses"),
+  classMeeting(6, "Tue, Oct 6", "Adversarial Attacks continued"),
   classMeeting(
     6,
     "Thu, Oct 8",
-    "In-class work session",
+    "Defenses against Adversarial Attacks",
     {
+      slides: "lectures/2026-fall/09_defense_poison.pdf",
+      readings: [
+        {
+          label: "A Comprehensive Survey on Poisoning Attacks and Countermeasures in Machine Learning",
+          href: "https://dl.acm.org/doi/10.1145/3551636",
+        },
+      ],
       deadlines: [
         "Coding Homework 1 due",
         "Coding Homework 2 released (tentative)",
