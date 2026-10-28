@@ -293,7 +293,6 @@ const items: ScheduleItem[] = [
     {
       deadlines: [
         "Written HW 2 due (tentative)",
-        "Written HW 3 released (tentative)",
       ],
     },
   ),
@@ -312,7 +311,7 @@ const items: ScheduleItem[] = [
     "Tue, Oct 27",
     "Guest Lecture",
     {
-      deadlines: ["Coding Homework 2 due (tentative)"],
+      deadlines: ["Written HW 3 released"],
     },
   ),
   classMeeting(
@@ -320,10 +319,7 @@ const items: ScheduleItem[] = [
     "Thu, Oct 29",
     "Differential Privacy",
     {
-      deadlines: [
-        "Written HW 3 due (tentative)",
-        "Written HW 4 released (tentative)",
-      ],
+      deadlines: ["Coding Homework 2 due"],
     },
   ),
   classMeeting(10, "Tue, Nov 3", "Machine Unlearning"),
@@ -332,27 +328,23 @@ const items: ScheduleItem[] = [
     "Thu, Nov 5",
     "Federated Learning",
     {
-      deadlines: ["Coding Homework 3 released (tentative)"],
+      deadlines: ["Written HW 4 released (tentative)"],
     },
   ),
   classMeeting(11, "Tue, Nov 10", "LLM Privacy"),
-  classMeeting(11, "Thu, Nov 12", "Algorithmic Fairness in ML"),
   classMeeting(
-    12,
-    "Tue, Nov 17",
-    "Fairness in LLMs",
+    11,
+    "Thu, Nov 12",
+    "Algorithmic Fairness in ML",
     {
-      deadlines: ["Written HW 4 due (tentative)"],
+      deadlines: [
+        "Written HW 3 due",
+        "Coding Homework 3 released (tentative)",
+      ],
     },
   ),
-  classMeeting(
-    12,
-    "Thu, Nov 19",
-    "Agent Safety/Alignment",
-    {
-      deadlines: ["Coding Homework 3 due (tentative)"],
-    },
-  ),
+  classMeeting(12, "Tue, Nov 17", "Fairness in LLMs"),
+  classMeeting(12, "Thu, Nov 19", "Agent Safety/Alignment"),
   noClass(
     12,
     "Fri, Nov 20",
@@ -361,8 +353,22 @@ const items: ScheduleItem[] = [
       deadlines: ["Project milestone due (tentative)"],
     },
   ),
-  noClass(13, "Tue, Nov 24", "No class — November recess"),
-  noClass(13, "Thu, Nov 26", "No class — Thanksgiving recess"),
+  noClass(
+    13,
+    "Tue, Nov 24",
+    "No class — November recess",
+    {
+      deadlines: ["Written HW 4 due (tentative)"],
+    },
+  ),
+  noClass(
+    13,
+    "Thu, Nov 26",
+    "No class — Thanksgiving recess",
+    {
+      deadlines: ["Coding Homework 3 due (tentative)"],
+    },
+  ),
   classMeeting(14, "Tue, Dec 1", "Guest Lecture"),
   classMeeting(14, "Thu, Dec 3", "Guest Lecture"),
   classMeeting(15, "Tue, Dec 8", "Revise and Prepare for Exam"),
