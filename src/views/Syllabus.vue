@@ -309,7 +309,7 @@ const items: ScheduleItem[] = [
   classMeeting(
     9,
     "Tue, Oct 27",
-    "Guest Lecture",
+    "No lecture",
     {
       deadlines: ["Written HW 3 released"],
     },
