@@ -317,8 +317,39 @@ const items: ScheduleItem[] = [
   classMeeting(
     9,
     "Thu, Oct 29",
-    "Differential Privacy",
+    "Agent Safety: When Agents Misbehave",
     {
+      slides: "lectures/2026-fall/12_agent_safety.pdf",
+      readings: [
+        {
+          label: "Redwood Research: Agent Behavior, Reasoning and Collaboration in the OpenAI / Hugging Face Incident",
+          href: "https://www.redwoodresearch.org/research/hugging-face-incident",
+        },
+        {
+          label: "METR: Independent Investigation of Agents' Behavior in the OpenAI / Hugging Face Incident",
+          href: "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+        },
+        {
+          label: "Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation",
+          href: "https://arxiv.org/abs/2503.11926",
+        },
+        {
+          label: "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+          href: "https://arxiv.org/abs/2507.11473",
+        },
+        {
+          label: "Alignment Faking in Large Language Models",
+          href: "https://arxiv.org/abs/2412.14093",
+        },
+        {
+          label: "AI Control: Improving Safety Despite Intentional Subversion",
+          href: "https://arxiv.org/abs/2312.06942",
+        },
+        {
+          label: "Defeating Prompt Injections by Design (CaMeL)",
+          href: "https://arxiv.org/abs/2503.18813",
+        },
+      ],
       deadlines: ["Coding Homework 2 due"],
     },
   ),
