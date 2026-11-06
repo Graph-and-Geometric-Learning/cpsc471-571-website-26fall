@@ -319,7 +319,7 @@ const items: ScheduleItem[] = [
     "Thu, Oct 29",
     "Agent Safety: When Agents Misbehave",
     {
-      slides: "lectures/2026-fall/12_agent_safety.pdf",
+      slides: "lectures/2026-fall/11_agent_safety.pdf",
       readings: [
         {
           label: "Redwood Research: Agent Behavior, Reasoning and Collaboration in the OpenAI / Hugging Face Incident",
