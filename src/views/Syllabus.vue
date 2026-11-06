@@ -353,11 +353,11 @@ const items: ScheduleItem[] = [
       deadlines: ["Coding Homework 2 due"],
     },
   ),
-  classMeeting(10, "Tue, Nov 3", "Machine Unlearning"),
+  classMeeting(10, "Tue, Nov 3", "Agent safety continued"),
   classMeeting(
     10,
     "Thu, Nov 5",
-    "Federated Learning",
+    "Agent safety continued",
     {
       deadlines: ["Written HW 4 released (tentative)"],
     },
