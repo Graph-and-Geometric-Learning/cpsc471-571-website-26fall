@@ -362,7 +362,11 @@ const items: ScheduleItem[] = [
       deadlines: ["Written HW 4 released (tentative)"],
     },
   ),
-  classMeeting(11, "Tue, Nov 10", "LLM Privacy"),
+  classMeeting(11, "Tue, Nov 10", "LLM Privacy",
+    {
+      slides: "lectures/2026-fall/12-privacy.pdf",
+    }
+  ),
   classMeeting(
     11,
     "Thu, Nov 12",
