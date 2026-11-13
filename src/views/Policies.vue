@@ -31,7 +31,6 @@
                                 <li>In-class discussion session: 5%</li>
                                 <li>Proposal: 5%</li>
                                 <li>In-class "hackathon": 5%</li>
-                                <li>Milestone: 15%</li>
                                 <li> Final report: 20%</li>
                                 <li><b>Consistent work is valued the most</b></li>
                             </ul>

@@ -354,14 +354,7 @@ const items: ScheduleItem[] = [
     },
   ),
   classMeeting(10, "Tue, Nov 3", "Agent safety continued"),
-  classMeeting(
-    10,
-    "Thu, Nov 5",
-    "Agent safety continued",
-    {
-      deadlines: ["Written HW 4 released (tentative)"],
-    },
-  ),
+  classMeeting(10, "Thu, Nov 5", "Agent safety continued"),
   classMeeting(11, "Tue, Nov 10", "LLM Privacy",
     {
       slides: "lectures/2026-fall/12-privacy.pdf",
@@ -370,41 +363,26 @@ const items: ScheduleItem[] = [
   classMeeting(
     11,
     "Thu, Nov 12",
-    "Algorithmic Fairness in ML",
+    "Privacy continued",
     {
       deadlines: [
         "Written HW 3 due",
-        "Coding Homework 3 released (tentative)",
+        "Written HW 4 released",
       ],
     },
   ),
   classMeeting(12, "Tue, Nov 17", "Fairness in LLMs"),
   classMeeting(12, "Thu, Nov 19", "Agent Safety/Alignment"),
-  noClass(
-    12,
-    "Fri, Nov 20",
-    "No class",
+  noClass(13, "Tue, Nov 24", "No class — November recess"),
+  noClass(13, "Thu, Nov 26", "No class — Thanksgiving recess"),
+  classMeeting(
+    14,
+    "Tue, Dec 1",
+    "Guest Lecture",
     {
-      deadlines: ["Project milestone due (tentative)"],
+      deadlines: ["Written HW 4 due"],
     },
   ),
-  noClass(
-    13,
-    "Tue, Nov 24",
-    "No class — November recess",
-    {
-      deadlines: ["Written HW 4 due (tentative)"],
-    },
-  ),
-  noClass(
-    13,
-    "Thu, Nov 26",
-    "No class — Thanksgiving recess",
-    {
-      deadlines: ["Coding Homework 3 due (tentative)"],
-    },
-  ),
-  classMeeting(14, "Tue, Dec 1", "Guest Lecture"),
   classMeeting(14, "Thu, Dec 3", "Guest Lecture"),
   classMeeting(15, "Tue, Dec 8", "Revise and Prepare for Exam"),
   classMeeting(15, "Thu, Dec 10", "Exam"),
