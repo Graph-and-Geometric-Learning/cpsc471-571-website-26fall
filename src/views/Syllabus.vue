@@ -374,7 +374,7 @@ const items: ScheduleItem[] = [
   classMeeting(12, "Tue, Nov 17", "Federated Learning", {
     slides: "lectures/2026-fall/13-federated_learning.pdf",
   }),
-  classMeeting(12, "Thu, Nov 19", "Agent Safety/Alignment"),
+  classMeeting(12, "Thu, Nov 19", "Unlearning"),
   noClass(13, "Tue, Nov 24", "No class — November recess"),
   noClass(13, "Thu, Nov 26", "No class — Thanksgiving recess"),
   classMeeting(
